@@ -27,5 +27,29 @@
  *   // => { totalChai: 0, totalRevenue: 0 }
  */
 export function chaiTapriRevenue(customers) {
-  // Your code here
+  if (typeof customers !== "number" || customers < 0 || !Number.isInteger(customers)  ) {
+    return {
+       totalChai: 0, 
+       totalRevenue: 0 
+      }
+  }
+
+  let Acount = 0;
+  let Ccount = 0
+
+  for (let chai = 1; chai <= customers; chai++) {
+    if (chai % 3 == 0) {
+      Acount = Acount + 1;
+    }else{
+      Ccount = Ccount + 1;
+    }
+  }
+
+  let totalChai = Acount + Ccount;
+  let totalRevenue = (Acount * 15) + (Ccount * 10);
+
+  return {
+    totalChai,
+    totalRevenue
+  }
 }
